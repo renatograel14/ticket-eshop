@@ -8,7 +8,7 @@
     <title>Challenge-Fullstack</title>
 
     <link rel="stylesheet" href="/style/boostrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+    <!-- <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css"> -->
     <link rel="stylesheet" href="/style/css/main.css" />
 
     <style>
@@ -36,20 +36,40 @@
             </ul>
         </header>
 
+        <section ng-controller="FormDeliveryController as form" class="bg-faded p-3 span-3">
+            <form name="deliveryForm" ng-submit="form.submit()">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="name" ng-model="form.value.name" required/>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" type="number" placeholder="weight" ng-model="form.value.weight" required/>
+                        <div class="input-group-addon bg-primary text-white">kg</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-success btn-block" type="submit" value="Cadastrar Cliente">
+                </div>
+            </form>
+            <button class="btn btn-warning btn-block" ng-click="form.reset()">Resetar</button>
+
+        </section>
+
 
         <section class="p-3">
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="delivery in app.deliveries"> {{delivery.name}}</li>
+                <li class="list-group-item" ng-repeat="delivery in app.deliveries"> {{delivery.name}} - {{delivery.weight}}</li>
             </ul>
         </section>
     </main>
 
     <script src="/node_modules/angular/angular.js"></script>
-    <script src="/node_modules/angular-aria/angular-aria.js"></script>
-    <script src="/node_modules/angular-animate/angular-animate.js"></script>
-    <script src="/node_modules/angular-material/angular-material.js"></script>
+    <!-- <script src="/node_modules/angular-aria/angular-aria.js"></script> -->
+    <!-- <script src="/node_modules/angular-animate/angular-animate.js"></script> -->
+    <!-- <script src="/node_modules/angular-material/angular-material.js"></script> -->
     <script src="/app/app.js"></script>
     <script src="/app/controllers/main-controller.js"></script>
+    <script src="/app/controllers/form-delivery-controller.js"></script>
     <script src="/app/services/delivery-service.js"></script>
 
 </body>

@@ -1,5 +1,5 @@
 (function () {
 
-    var app = angular.module('challengerFullstack', ['ngMaterial']);
+    var app = angular.module('challengerFullstack', []);
 
 })();
