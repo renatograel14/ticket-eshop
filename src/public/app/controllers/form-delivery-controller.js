@@ -30,7 +30,7 @@
 
             var { name, weight } = this.value;
             var add_details = place.address_components;
-            var {location } = place.geometry;
+            var { location } = place.geometry;
 
             var delivery = {
                 name,
@@ -42,15 +42,18 @@
                     city: add_details[3].long_name,
                     state: add_details[4].long_name,
                     country: add_details[5].long_name,
-                    geolocation:  $scope.geometry
+                    geolocation: $scope.geometry
                 }
             }
 
-            deliveryService.insert(this.value)
+            deliveryService.insert(delivery)
                 .then(result => {
                     this.reset();
-                    var scope = angular.element(document.getElementById('main')).scope();
-                    scope.app.refresh();
+                    var mainScope = angular.element(document.getElementById('main')).scope();
+                    mainScope.app.refresh();
+                })
+                .catch(err => {
+                    window.alert(err.data.message);
                 });
         }
 

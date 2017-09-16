@@ -8,9 +8,9 @@ module.exports = function (db) {
     var DeliveryModel = new Schema({
         name: { type: String, default: '' },
         weight: { type: Number, min: 0 },
-        adress: {
-            adress: { type: String, default: ''},
-            number: {type: Number, min: 0},
+        address: {
+            address: { type: String, default: ''},
+            number: {type: String, default: ''},
             district: {type: String, default: ''},
             complement: {type: String, default: ''},
             city: {type: String, default: ''},

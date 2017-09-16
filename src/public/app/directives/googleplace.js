@@ -15,8 +15,8 @@
                     var { location } = place.geometry;
 
                     var geometry = {
-                        longitude: location.lat(),
-                        latitude: location.lng()
+                        latitude: location.lat(),
+                        longitude: location.lng()
                     };
 
                     scope.geometry = geometry;

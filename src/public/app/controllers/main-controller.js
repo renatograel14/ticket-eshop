@@ -11,16 +11,30 @@
             "Be cool (⌐■_■)"
         ]
 
+        this.totalWeight = 0;
+        this.totalCustomers = 0;
+
         this.delete = (delivery) => {
             deliveryService.remove(delivery._id)
-                .then((err, result)=> {
+                .then((err, result) => {
                     this.refresh();
                 })
         }
 
         this.refresh = () => {
             deliveryService.getAll()
-                .then(result => this.deliveries = result.data);
+                .then(result => {
+                    this.deliveries = result.data;
+
+                    this.totalCustomers = this.deliveries.length;
+                    this.totalWeight = this.deliveries.reduce((prev, curr)=> {
+                        return prev + curr.weight;
+                    }, 0);
+
+
+                    var mapScope = angular.element(document.getElementById('mapid')).scope();
+                    mapScope.refresh(this.deliveries);
+                });
         }
 
         this.refresh();
