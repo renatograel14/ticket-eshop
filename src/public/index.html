@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="/style/boostrap/bootstrap.min.css" />
     <!-- <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css">
+
     <link rel="stylesheet" href="/style/css/main.css" />
 
     <style>
@@ -25,7 +28,7 @@
 
 <body class="bg-primary" ng-cloak>
 
-    <main class="container p-5" ng-controller="MainController as app">
+    <main id="main" class="container p-5" ng-controller="MainController as app">
         <header>
             <p class="display-4 text-white">{{app.title}}</p>
             <hr />
@@ -36,8 +39,8 @@
             </ul>
         </header>
 
-        <section ng-controller="FormDeliveryController as form" class="bg-faded p-3 span-3">
-            <form name="deliveryForm" ng-submit="form.submit()">
+        <section ng-controller="FormDeliveryController as form">
+            <form name="deliveryForm" ng-submit="form.submit()" class="bg-faded z-depth-1-half p-3 mb-1 span-3">
                 <div class="form-group">
                     <input class="form-control" type="text" placeholder="name" ng-model="form.value.name" required/>
                 </div>
@@ -51,19 +54,27 @@
                     <input class="btn btn-success btn-block" type="submit" value="Cadastrar Cliente">
                 </div>
             </form>
-            <button class="btn btn-warning btn-block" ng-click="form.reset()">Resetar</button>
+
+            <div class="bg-faded z-depth-1-half p-3 mb-1 span-3">
+                <button class="btn btn-warning btn-block" ng-click="form.reset()">Resetar</button>
+            </div>
 
         </section>
 
 
-        <section class="p-3">
-            <ul class="list-group">
-                <li class="list-group-item" ng-repeat="delivery in app.deliveries"> {{delivery.name}} - {{delivery.weight}}</li>
-            </ul>
-        </section>
+        <ul class="list-group">
+            <li ng-repeat="delivery in app.deliveries" 
+                class="list-group-item d-flex justify-content-between align-items-center" >
+                {{delivery.name}} - {{delivery.weight}}
+                <span style="cursor: pointer" ng-click="app.delete(delivery)" class="badge badge-danger badge-pill hoverable">x</span>
+            </li>
+        </ul>
     </main>
 
     <script src="/node_modules/angular/angular.js"></script>
+    <script>
+        src = "https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"
+    </script>
     <!-- <script src="/node_modules/angular-aria/angular-aria.js"></script> -->
     <!-- <script src="/node_modules/angular-animate/angular-animate.js"></script> -->
     <!-- <script src="/node_modules/angular-material/angular-material.js"></script> -->

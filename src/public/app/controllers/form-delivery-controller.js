@@ -14,6 +14,11 @@
         
         this.submit = function() {
             console.log(this.value);
+            deliveryService.insert(this.value)
+                .then(result=> {
+                    var scope = angular.element(document.getElementById('main')).scope();
+                    scope.app.refresh();
+                });
         }
 
         this.reset();

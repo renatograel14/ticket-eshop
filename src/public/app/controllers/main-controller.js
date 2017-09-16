@@ -1,8 +1,9 @@
 (function () {
     var app = angular.module('challengerFullstack');
 
-    function MainController (deliveryService) {
+    function MainController(deliveryService) {
         this.title = "Deliveries App";
+        this.deliveries = [];
         this.instructions = [
             "Register a delivery. Make sure you describe the weigth and the right location",
             "See it on the map",
@@ -10,10 +11,20 @@
             "Be cool (⌐■_■)"
         ]
 
-        this.deliveries = [];
+        this.delete = (delivery) => {
+            deliveryService.remove(delivery._id)
+                .then((err, result)=> {
+                    this.refresh();
+                })
+        }
 
-        deliveryService.getAll()
-            .then(result => this.deliveries = result.data);
+        this.refresh = () => {
+            deliveryService.getAll()
+                .then(result => this.deliveries = result.data);
+        }
+
+        this.refresh();
+
 
     }
 
