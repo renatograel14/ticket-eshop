@@ -6,7 +6,7 @@ var ObjectId = Schema.ObjectId;
 
 module.exports = function (db) {
     var DeliveryModel = new Schema({
-        name: { type: String, default: '', match: /^[a-z\d\-_\s]+$/i },
+        name: { type: String, default: '' },
         weight: { type: Number, min: 0 },
         adress: {
             adress: { type: String, default: ''},
