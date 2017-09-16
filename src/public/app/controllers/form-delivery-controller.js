@@ -16,6 +16,7 @@
             console.log(this.value);
             deliveryService.insert(this.value)
                 .then(result=> {
+                    this.reset();
                     var scope = angular.element(document.getElementById('main')).scope();
                     scope.app.refresh();
                 });
