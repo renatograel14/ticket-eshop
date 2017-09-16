@@ -5,7 +5,7 @@
         this.title = "Deliveries App";
         this.deliveries = [];
         this.instructions = [
-            "Register a delivery. Make sure you describe the weigth and the right location",
+            "Register a delivery. Make sure you describe the weigth and the right location (with your address number)",
             "See it on the map",
             "Choose those which you don't need anymore and delete",
             "Be cool (⌐■_■)"
