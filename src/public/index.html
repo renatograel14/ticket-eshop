@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="challengerFullstack">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge-Fullstack</title>
+
+    <link rel="stylesheet" href="/style/boostrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/style/css/main.css" />
+
+    <style>
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-primary" ng-cloak>
+
+    <main class="container p-5" ng-controller="MainController as app">
+        <header>
+            <p class="display-4 text-white">{{app.title}}</p>
+            <hr />
+            <ul class="text-white instructions-list">
+                <li class="item" ng-repeat="instruction in app.instructions">
+                    <small><em>{{ instruction }} </em></small>
+                </li>
+            </ul>
+        </header>
+
+
+        <section class="p-3">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="delivery in app.deliveries"> {{delivery.name}}</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-aria/angular-aria.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/controllers/main-controller.js"></script>
+    <script src="/app/services/delivery-service.js"></script>
+
+</body>
+
+</html>

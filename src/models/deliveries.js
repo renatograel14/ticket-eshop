@@ -4,7 +4,7 @@ var ObjectId = Schema.ObjectId;
 
 
 
-module.exports = function () {
+module.exports = function (db) {
     var DeliveryModel = new Schema({
         name: { type: String, default: '', match: /^[a-z\d\-_\s]+$/i },
         weight: { type: Number, min: 0 },
@@ -25,5 +25,5 @@ module.exports = function () {
         collection: 'deliveries'
     })
 
-    return mongoose.model('Delivery', DeliveryModel);
+    return db.model('Delivery', DeliveryModel);
 }
