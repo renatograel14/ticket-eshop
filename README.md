@@ -2,8 +2,7 @@
 
 MEAN Stack application.
 
-# Features
-Ao finalizar o desafio, o usuário deverá estar habilitado a cadastrar os clientes no formulário, e ao salvar, atualizar o mapa com o ponto daquele cadastro e a tabela com os dados do cliente. Na tabela há um botão para excluir o cliente, que deverá removê-lo do banco, mapa e tabela.
+# API
 
 ```REST
 POST /deliveries
@@ -29,14 +28,10 @@ POST /deliveries
  recive all deliveries
 ```
 
-A requisição GET para /deliveries deve trazer um json com as informações das deliveries que existem no banco e exibí-las no mapa e na tabela.
-
 ``` REST
  DELETE /deliveries/:id
  delete a deliveries with id
 ```
-
-Há um botão na tabela para excluir a delivery. Ele deverá remover todos os clientes tanto do banco quanto do mapa/tabela.
 
 ### Installation
 
