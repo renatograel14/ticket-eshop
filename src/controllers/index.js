@@ -2,8 +2,10 @@ var models = require('../models')();
 
 
 module.exports = function () {
-    var deliveries = require('./deliveries')(models);
+    var customer = require('./customer')(models);
+    var show = require('./show')(models);
     return {
-        deliveries
+        customer,
+        show
     }
 }

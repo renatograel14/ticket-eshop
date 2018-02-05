@@ -1,7 +1,7 @@
 var express = require('express');
 var routes = express.Router();
 
-var deliveriesController = require('../controllers')().deliveries;
+var showController = require('../controllers')().show;
 
 routes.use(function (req, res, next) {
   console.log('Time: ', Date.now());
@@ -10,12 +10,17 @@ routes.use(function (req, res, next) {
 
 routes
   .route('/')
-  .get(deliveriesController.getAll)
-  .post(deliveriesController.insert);
+  .get(showController.getAll)
+  .post(showController.insert);
 
 routes
   .route('/:id')
-  .delete(deliveriesController.delete);
+  .delete(showController.delete);
+
+
+routes
+  .route('/:showId/:gigId')
+  .post(showController.createTickets);
 
 
 module.exports = routes;

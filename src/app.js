@@ -2,8 +2,10 @@ var app = require('./config/express.js')();
 
 
 var bodyParser = require('body-parser')
+app.use(bodyParser({limit: '50mb'}))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 
 
 var routes = require('./routes')();

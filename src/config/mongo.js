@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 module.exports = function () {
     mongoose.Promise = global.Promise;
-    const dbURI = 'mongodb://localhost:27017/challenge';
+    const dbURI = 'mongodb://localhost:27017/tickets-eshop';
     var _connection = mongoose.connect(dbURI, {
         useMongoClient: true,
     });

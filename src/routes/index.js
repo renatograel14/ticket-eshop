@@ -1,8 +1,10 @@
 
 module.exports = function () {
-    var deliveries = require('./deliveries');
+    var customer = require('./customer');
+    var show = require('./show');
 
     return {
-        deliveries
+        customer,
+        show
     }
 }

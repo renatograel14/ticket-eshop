@@ -1,8 +1,10 @@
 var db = require('../config/mongo.js')();
+var Customer = require('./customer')(db);
+var Show = require('./show')(db);
 
 module.exports = function () {
-    var Delivery = require('./deliveries')(db);
     return {
-        Delivery
+        Customer,
+        Show
     }
 }
